@@ -1,9 +1,15 @@
-@function backdrop-filter-value() {
-    @return brightness(0.875)
+@function backdrop-filter-value($brightness) {
+    @return brightness($brightness)
 };
 
 .low-hover {
     &:hover {
-        backdrop-filter: backdrop-filter-value();
+        backdrop-filter: backdrop-filter-value(0.875);
+    }
+}
+
+.low-hover-lighter {
+    &:hover {
+        backdrop-filter: backdrop-filter-value(0.95);
     }
 }

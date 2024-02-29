@@ -1,0 +1,25 @@
+@use "styles/variables";
+
+nav {
+    padding: 12px 0;
+
+    width: variables.$nav-width;
+    height: 100%;
+
+    #home-nav {
+        font-weight: 600;
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-division {
+        padding: 0 12px;
+        border-bottom: 1px solid variables.$nav-division-color;
+
+        .nav-sub-division-line {
+            margin: 12px 0;
+            height: 1px;
+
+            background-color: variables.$nav-division-color;
+        }
+    }
+}

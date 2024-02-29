@@ -46,6 +46,8 @@
     #{&}-left {
         display: flex;
         align-items: center;
+
+        margin-right: 9px;
         
         #menu {
             @include head-button;
@@ -77,7 +79,8 @@
 
     #{&}-center {
         display: flex;
-
+        margin-left: 44px;
+        
         #search {
             margin-left: 32px;
 
@@ -100,7 +103,7 @@
             }
 
             input {
-                width: 436px;
+                width: 479px;
                 height: 20px;
                 
                 line-height: 48px;
@@ -129,7 +132,7 @@
 
             background-color: variables.$search-button-bg-color;
 
-            width: 64px;
+            width: 63px;
             height: 40px;
 
             display: flex;
@@ -158,6 +161,8 @@
         display: flex;
         align-items: center;
         gap: 8px;
+
+        margin-left: 69px;
 
         #upload, #notifications {
             @include head-button;
