@@ -56,14 +56,14 @@ export default function TopHead() {
             <div id="top-head-left">
                 <button id="menu" className="low-hover">
                     <div className="svg-theme-change">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" style={{ pointerEvents: "none", display: "block", width: "100%", height: "100%" }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false">
                             <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
                         </svg>
                     </div>
                 </button>
                 <a href="/">
                     <div id="youtube-logo" className="svg-theme-change">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="external-icon" viewBox="0 0 90 20" focusable="false" style={{ pointerEvents: "none", display: "block", width: "100%", height: "100%" }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="external-icon" viewBox="0 0 90 20" focusable="false">
                             <svg viewBox="0 0 90 20" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
                                 <g>
                                     <path d="M27.9727 3.12324C27.6435 1.89323 26.6768 0.926623 25.4468 0.597366C23.2197 2.24288e-07 14.285 0 14.285 0C14.285 0 5.35042 2.24288e-07 3.12323 0.597366C1.89323 0.926623 0.926623 1.89323 0.597366 3.12324C2.24288e-07 5.35042 0 10 0 10C0 10 2.24288e-07 14.6496 0.597366 16.8768C0.926623 18.1068 1.89323 19.0734 3.12323 19.4026C5.35042 20 14.285 20 14.285 20C14.285 20 23.2197 20 25.4468 19.4026C26.6768 19.0734 27.6435 18.1068 27.9727 16.8768C28.5701 14.6496 28.5701 10 28.5701 10C28.5701 10 28.5677 5.35042 27.9727 3.12324Z" fill="#FF0000"></path>
@@ -88,14 +88,14 @@ export default function TopHead() {
             <div id="top-head-center">
                 <div ref={searchIdRef} id="search">
                     <div ref={searchIconRightRef} id="search-icon-right" className="svg-theme-change">
-                        <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style={{ pointerEvents: "none", display: "block", width: "100%", height: "100%" }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false">
                             <path d="m20.87 20.17-5.59-5.59C16.35 13.35 17 11.75 17 10c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7c1.75 0 3.35-.65 4.58-1.71l5.59 5.59.7-.71zM10 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"></path>
                         </svg>
                     </div>
-                    <input ref={searchRef} onFocus={onFocusOnInput} onBlur={onBlurOnInput} onInput={onSearchInput} type="text" autoComplete="off" aria-label="Search" placeholder="Search" autoCorrect="off" />
+                    <input ref={searchRef} onFocus={onFocusOnInput} onBlur={onBlurOnInput} onChange={onSearchInput} type="text" autoComplete="off" aria-label="Search" placeholder="Search" autoCorrect="off" />
                     <button ref={clearBtnRef} onClick={clearSearchInput} id="clear-button" className="low-hover">
                         <div className="svg-theme-change">
-                            <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style={{ pointerEvents: "none", display: "block", width: "100%", height: "100%" }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false">
                                 <path d="m12.71 12 8.15 8.15-.71.71L12 12.71l-8.15 8.15-.71-.71L11.29 12 3.15 3.85l.71-.71L12 11.29l8.15-8.15.71.71L12.71 12z"></path>
                             </svg>
                         </div>
@@ -104,7 +104,7 @@ export default function TopHead() {
                 <button id="search-button">
                     <span>Search</span>
                     <div className="svg-theme-change">
-                        <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style={{ pointerEvents: "none", display: "block", width: "100%", height: "100%" }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false">
                             <path d="m20.87 20.17-5.59-5.59C16.35 13.35 17 11.75 17 10c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7c1.75 0 3.35-.65 4.58-1.71l5.59 5.59.7-.71zM10 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"></path>
                         </svg>
                     </div>
@@ -112,7 +112,7 @@ export default function TopHead() {
                 <button id="search-voice" className="low-hover">
                     <span>Search with your voice</span>
                     <div className="svg-theme-change">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" style={{ pointerEvents: "none", display: "block", width: "100%", height: "100%" }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false">
                             <path d="M12 3c-1.66 0-3 1.37-3 3.07v5.86c0 1.7 1.34 3.07 3 3.07s3-1.37 3-3.07V6.07C15 4.37 13.66 3 12 3zm6.5 9h-1c0 3.03-2.47 5.5-5.5 5.5S6.5 15.03 6.5 12h-1c0 3.24 2.39 5.93 5.5 6.41V21h2v-2.59c3.11-.48 5.5-3.17 5.5-6.41z"></path>
                         </svg>
                     </div>
@@ -122,7 +122,7 @@ export default function TopHead() {
                 <button id="upload" className="low-hover">
                     <span>Upload</span>
                     <div className="svg-theme-change">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" style={{ pointerEvents: "none", display: "block", width: "100%", height: "100%" }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false">
                             <title>outlined copy</title>
                             <path d="M17 18v1H6v-1ZM6.49 9l.71.71 3.8-3.8V16h1V5.91l3.8 3.81.71-.72-5-5Z"></path>
                         </svg>
@@ -131,7 +131,7 @@ export default function TopHead() {
                 <button id="notifications" className="low-hover">
                     <span>Notifications</span>
                     <div className="svg-theme-change">
-                        <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style={{ pointerEvents: "none", display: "block", width: "100%", height: "100%" }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false">
                             <path d="M10 20h4c0 1.1-.9 2-2 2s-2-.9-2-2zm10-2.65V19H4v-1.65l2-1.88v-5.15C6 7.4 7.56 5.1 10 4.34v-.38c0-1.42 1.49-2.5 2.99-1.76.65.32 1.01 1.03 1.01 1.76v.39c2.44.75 4 3.06 4 5.98v5.15l2 1.87zm-1 .42-2-1.88v-5.47c0-2.47-1.19-4.36-3.13-5.1-1.26-.53-2.64-.5-3.84.03C8.15 6.11 7 7.99 7 10.42v5.47l-2 1.88V18h14v-.23z"></path>
                         </svg>
                     </div>

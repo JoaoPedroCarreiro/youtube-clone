@@ -1,10 +1,13 @@
 @use "styles/variables";
 
 nav {
-    padding: 12px 0;
-
     width: variables.$nav-width;
-    height: 100%;
+    height: calc(100vh - variables.$head-height);
+
+    overflow-y: auto;
+
+    position: sticky;
+    top: variables.$head-height;
 
     #home-nav {
         font-weight: 600;
@@ -12,7 +15,7 @@ nav {
     }
 
     .nav-division {
-        padding: 0 12px;
+        padding: 12px;
         border-bottom: 1px solid variables.$nav-division-color;
 
         .nav-sub-division-line {
@@ -20,6 +23,51 @@ nav {
             height: 1px;
 
             background-color: variables.$nav-division-color;
+        }
+    }
+
+    h2 {
+        font-size: 1rem;
+        line-height: 22px;
+
+        padding: 6px 12px 4px 12px;
+    }
+
+    #guide-links {
+        padding: 21px 20px 13px 24px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .guide-link-division {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            a {
+                font-size: 0.8125rem;
+                line-height: 10px;
+
+                font-weight: 600;
+
+                color: variables.$secondary-text-color;
+            }
+
+            span {
+                font-size: 0.75rem;
+                font-weight: 500;
+                line-height: 16px;
+
+                padding: 4px 0px;
+
+                color: variables.$tertiary-text-color;
+            }
+
+            &:first-child {
+                padding-right: 20px;
+                padding-bottom: 4px;
+            }
         }
     }
 }
