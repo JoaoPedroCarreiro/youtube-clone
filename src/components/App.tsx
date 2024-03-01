@@ -4,7 +4,9 @@ import "styles/low-hover.scss"
 import TopHead from "./top-head/TopHead"
 import Nav from "./nav/Nav"
 
-export default function App() {
+interface AppProps {}
+
+const App: React.FC<AppProps> = () => {
     return (
         <div id="app">
             <TopHead />
@@ -12,3 +14,5 @@ export default function App() {
         </div>
     )
 }
+
+export default App

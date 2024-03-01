@@ -1,3 +1,4 @@
+import React from "react"
 import "./NavItem.scss"
 
 interface NavItemProps {
@@ -8,7 +9,7 @@ interface NavItemProps {
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-export default function NavItem({ children, className="", name="", id="", onClick=(event: React.MouseEvent<HTMLButtonElement>): void => {} }: NavItemProps) {
+const NavItem: React.FC<NavItemProps> = ({ children, className="", name="", id="", onClick=() => {} }) => {
     return (
         <button onClick={onClick} id={id} className={`nav-item low-hover-lighter ${className}`}>
             <div style={{ display: "flex", alignItems: "center" }} className="svg-theme-change">
@@ -18,3 +19,5 @@ export default function NavItem({ children, className="", name="", id="", onClic
         </button>
     )
 }
+
+export default NavItem

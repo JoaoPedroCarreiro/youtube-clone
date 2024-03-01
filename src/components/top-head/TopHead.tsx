@@ -1,13 +1,19 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import "./TopHead.scss"
 
 import user from "assets/user.jpg"
 
-export default function TopHead() {
+const key = "AIzaSyC0NZkDiGxlxEKwLxiXxcFr1HUxILU3fuI"
+
+interface TopHeadProps {}
+
+const TopHead: React.FC<TopHeadProps> = () => {
     const searchIdRef = useRef<HTMLDivElement | null>(null)
     const searchIconRightRef = useRef<HTMLDivElement | null>(null)
     const searchRef = useRef<HTMLInputElement | null>(null)
     const clearBtnRef = useRef<HTMLButtonElement | null>(null)
+
+    const [searchQuery, setSearchQuery] = useState<string>("")
 
     const onFocusOnInput = (): void => {
         if(searchIconRightRef?.current && searchIdRef?.current) {
@@ -35,6 +41,8 @@ export default function TopHead() {
 
     const onSearchInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
         if(clearBtnRef?.current) {
+            setSearchQuery(event.currentTarget.value)
+
             if(!!event.currentTarget.value) {
                 clearBtnRef.current.style.opacity = "1"
                 return
@@ -101,14 +109,14 @@ export default function TopHead() {
                         </div>
                     </button>
                 </div>
-                <button id="search-button">
+                <a id="search-button" href={searchQuery ? `/results?search_query=${searchQuery}` : "#"}>
                     <span>Search</span>
                     <div className="svg-theme-change">
                         <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false">
                             <path d="m20.87 20.17-5.59-5.59C16.35 13.35 17 11.75 17 10c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7c1.75 0 3.35-.65 4.58-1.71l5.59 5.59.7-.71zM10 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"></path>
                         </svg>
                     </div>
-                </button>
+                </a>
                 <button id="search-voice" className="low-hover">
                     <span>Search with your voice</span>
                     <div className="svg-theme-change">
@@ -143,3 +151,5 @@ export default function TopHead() {
         </div>
     )
 }
+
+export default TopHead

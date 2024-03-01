@@ -1,9 +1,11 @@
-import { useRef } from "react"
+import React, { useRef } from "react"
 import "./Nav.scss"
 
 import NavItem from "./NavItem"
 
-export default function Nav() {
+interface NavProps {}
+
+const Nav: React.FC<NavProps> = () => {
     const navDivRef = useRef<HTMLDivElement | null>(null)
 
     const showMore = (event: React.MouseEvent<HTMLButtonElement>): void => {
@@ -240,3 +242,5 @@ export default function Nav() {
         </nav>
     )
 }
+
+export default Nav
