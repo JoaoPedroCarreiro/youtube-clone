@@ -3,8 +3,6 @@ import "./TopHead.scss"
 
 import user from "assets/user.jpg"
 
-const key = "AIzaSyC0NZkDiGxlxEKwLxiXxcFr1HUxILU3fuI"
-
 interface TopHeadProps {}
 
 const TopHead: React.FC<TopHeadProps> = () => {
