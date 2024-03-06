@@ -1,7 +1,12 @@
 import { useRef, useState } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
 import "./TopHead.scss"
 
 import user from "assets/user.jpg"
+
+function normalize(str: string): string {
+    return str.split("%20").join(" ")
+}
 
 interface TopHeadProps {}
 
@@ -11,10 +16,19 @@ const TopHead: React.FC<TopHeadProps> = () => {
     const searchRef = useRef<HTMLInputElement | null>(null)
     const clearBtnRef = useRef<HTMLButtonElement | null>(null)
 
+    const { search } = useLocation()
+    const navigate = useNavigate()
+
     const [searchQuery, setSearchQuery] = useState<string>("")
 
     const toggleMenu = (): void => {
         document.body.querySelector("nav")?.toggleAttribute("mini")
+    }
+
+    const onEnterDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
+        if(event.key === "Enter") {
+            navigate(searchQuery ? `/results?search_query=${searchQuery}` : "#")
+        }
     }
 
     const onFocusOnInput = (): void => {
@@ -102,7 +116,16 @@ const TopHead: React.FC<TopHeadProps> = () => {
                             <path d="m20.87 20.17-5.59-5.59C16.35 13.35 17 11.75 17 10c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7c1.75 0 3.35-.65 4.58-1.71l5.59 5.59.7-.71zM10 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"></path>
                         </svg>
                     </div>
-                    <input ref={searchRef} onFocus={onFocusOnInput} onBlur={onBlurOnInput} onChange={onSearchInput} type="text" autoComplete="off" aria-label="Search" placeholder="Search" autoCorrect="off" />
+                    <input
+                        ref={searchRef}
+                        onKeyDown={onEnterDown}
+                        onFocus={onFocusOnInput}
+                        onBlur={onBlurOnInput}
+                        onChange={onSearchInput}
+                        type="text" autoComplete="off" aria-label="Search"
+                        defaultValue={search.startsWith("?search_query=") ? normalize(search.split("?search_query=")[1]) : ""}
+                        placeholder="Search" autoCorrect="off"
+                    />
                     <button ref={clearBtnRef} onClick={clearSearchInput} id="clear-button" className="low-hover">
                         <div className="svg-theme-change">
                             <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false">

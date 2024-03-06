@@ -12,11 +12,6 @@ nav {
     background-color: variables.$bg-color;
     z-index: 3;
 
-    #home-nav {
-        font-weight: 600;
-        background-color: rgba(0, 0, 0, 0.05);
-    }
-
     .nav-division {
         padding: 12px;
         border-bottom: 1px solid variables.$nav-division-color;
@@ -119,5 +114,12 @@ nav {
         #mini-nav {
             display: block;
         }
+    }
+}
+
+body[home] {
+    #home-nav {
+        font-weight: 600;
+        background-color: rgba(0, 0, 0, 0.05);
     }
 }

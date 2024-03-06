@@ -4,6 +4,8 @@ import Nav from "./nav/Nav"
 interface AppProps {}
 
 const App: React.FC<AppProps> = () => {
+    document.body.toggleAttribute("home")
+
     return (
         <>
             <TopHead />
