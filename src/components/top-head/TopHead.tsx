@@ -13,6 +13,10 @@ const TopHead: React.FC<TopHeadProps> = () => {
 
     const [searchQuery, setSearchQuery] = useState<string>("")
 
+    const toggleMenu = (): void => {
+        document.body.querySelector("nav")?.toggleAttribute("mini")
+    }
+
     const onFocusOnInput = (): void => {
         if(searchIconRightRef?.current && searchIdRef?.current) {
             searchIconRightRef.current.style.width = "20px"
@@ -60,7 +64,7 @@ const TopHead: React.FC<TopHeadProps> = () => {
     return (
         <div id="top-head">
             <div id="top-head-left">
-                <button id="menu" className="low-hover">
+                <button id="menu" className="low-hover" onClick={toggleMenu}>
                     <div className="svg-theme-change">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false">
                             <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
