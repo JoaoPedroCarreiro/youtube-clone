@@ -1,0 +1,14 @@
+@use "styles/variables";
+
+section {
+    position: relative;
+    margin-top: calc(variables.$head-height + 16px);
+    margin-left: variables.$nav-width;
+
+    width: calc(100% - variables.$nav-width);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}

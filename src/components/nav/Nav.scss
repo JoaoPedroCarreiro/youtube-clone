@@ -6,8 +6,11 @@ nav {
 
     overflow-y: auto;
 
-    position: sticky;
+    position: fixed;
     top: variables.$head-height;
+
+    background-color: variables.$bg-color;
+    z-index: 3;
 
     #home-nav {
         font-weight: 600;

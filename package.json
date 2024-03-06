@@ -14,6 +14,7 @@
     "@types/react-dom": "^18.2.19",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
+    "axios": "^1.6.7",
     "coffee-script": "^1.12.7",
     "gapi": "^0.0.3",
     "react": "^18.2.0",
