@@ -38,7 +38,7 @@
         width: 360px;
         height: 202px;
 
-        background-color: blue;
+        background-color: variables.$loading-color;
 
         border-radius: 12px;
 
@@ -119,12 +119,38 @@
                 text-overflow: ellipsis;
                 white-space: nowrap;
 
-                width: 734px;
+                width: 720px;
                 font-size: 0.75rem;
 
                 color: variables.$secondary-text-color;
             }
-
         }
+    }
+
+    .unload-img-link {
+        width: 360px;
+        height: 202px;
+
+        background-color: variables.$loading-color;
+
+        border-radius: 12px;
+    }
+
+    .unload-title {
+        width: 460px;
+        height: 20px;
+
+        background-color: variables.$loading-color;
+
+        border-radius: 4px;
+    }
+
+    .unload-info {
+        width: 220px;
+        height: 14px;
+
+        background-color: variables.$loading-color;
+
+        border-radius: 3px;
     }
 }
