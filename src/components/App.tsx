@@ -1,5 +1,6 @@
 import TopHead from "./top-head/TopHead"
 import Nav from "./nav/Nav"
+import NavMenu from "./nav/NavMenu"
 
 interface AppProps {}
 
@@ -10,6 +11,7 @@ const App: React.FC<AppProps> = () => {
         <>
             <TopHead />
             <Nav />
+            <NavMenu />
         </>
     )
 }

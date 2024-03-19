@@ -2,14 +2,7 @@
     @return brightness($brightness)
 };
 
-.low-hover {
-    &:hover {
-        backdrop-filter: backdrop-filter-value(0.875);
-    }
-}
-
-.low-hover-lighter {
-    &:hover {
-        backdrop-filter: backdrop-filter-value(0.95);
-    }
-}
+.low-hover:hover { backdrop-filter: backdrop-filter-value(0.875); }
+.low-hover-lighter:hover { backdrop-filter: backdrop-filter-value(0.95); }
+html[dark] .low-hover:hover { backdrop-filter: backdrop-filter-value(4); }
+html[dark] .low-hover-lighter:hover { backdrop-filter: backdrop-filter-value(2.5); }

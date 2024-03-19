@@ -6,6 +6,7 @@ import { normalizeString } from "converters"
 import TopHead from "./top-head/TopHead"
 import Nav from "./nav/Nav"
 import VideoQuery from "./video-query/VideoQuery"
+import NavMenu from "./nav/NavMenu"
 
 interface SearchProps {}
 
@@ -19,6 +20,7 @@ const Search: React.FC<SearchProps> = () => {
             <TopHead />
             <Nav />
             <VideoQuery />
+            <NavMenu />
         </>
     )
 }

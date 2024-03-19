@@ -1,3 +1,55 @@
+:root {
+    --bg-color: white;
+
+    --primary-text-color: #0f0f0f;
+    --secondary-text-color: #606060;
+    --tertiary-text-color: #909090;
+
+    --loading-color: #ccc;
+
+    --search-button-bg-color: #f8f8f8;
+
+    --search-voice-bg-color: rgba(0, 0, 0, 0.05);
+    --search-voice-bg-color-hard: #f2f2f2;
+
+    --shadow-search-color: #eee;
+    --border-search-color: #ccc;
+
+    --nav-division-color: rgba(0, 0, 0, 0.1);
+    
+    --link-color: #065fd4;
+}
+
 * {
     font-family: "Roboto","Arial",sans-serif;
+}
+
+html[dark] {
+    --bg-color: #0f0f0f;
+
+    --primary-text-color: #f1f1f1;
+    --secondary-text-color: #aaa;
+    --tertiary-text-color: #717171;
+
+    --loading-color: #292929;
+
+    --search-button-bg-color: hsla(0, 0%, 100%, 0.08);
+
+    --search-voice-bg-color: rgba(255, 255, 255, 0.1);
+    --search-voice-bg-color-hard: #272727;
+
+    --shadow-search-color: hsla(0, 0%, 0%, 0);
+    --border-search-color: hsl(0, 0%, 18.82%);
+
+    --nav-division-color: rgba(255, 255, 255, 0.2);
+
+    --link-color: #3ea6ff;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+.svg-theme-change {
+    fill: var(--primary-text-color);
 }

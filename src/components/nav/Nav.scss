@@ -9,18 +9,18 @@ nav {
     position: fixed;
     top: variables.$head-height;
 
-    background-color: variables.$bg-color;
+    background-color: var(--bg-color);
     z-index: 3;
 
     .nav-division {
         padding: 12px;
-        border-bottom: 1px solid variables.$nav-division-color;
+        border-bottom: 1px solid var(--nav-division-color);
 
         .nav-sub-division-line {
             margin: 12px 0;
             height: 1px;
 
-            background-color: variables.$nav-division-color;
+            background-color: var(--nav-division-color);
         }
     }
 
@@ -29,6 +29,8 @@ nav {
         line-height: 22px;
 
         padding: 6px 12px 4px 12px;
+
+        color: var(--primary-text-color);
     }
 
     #guide-links {
@@ -49,7 +51,7 @@ nav {
 
                 font-weight: 600;
 
-                color: variables.$secondary-text-color;
+                color: var(--secondary-text-color);
             }
 
             span {
@@ -59,7 +61,7 @@ nav {
 
                 padding: 4px 0px;
 
-                color: variables.$tertiary-text-color;
+                color: var(--tertiary-text-color);
             }
 
             &:first-child {
@@ -95,13 +97,13 @@ nav {
                 font-size: 0.625rem;
                 line-height: 14px;
                 
-                color: variables.$primary-text-color;
+                color: var(--primary-text-color);
             }
         }
     }
 
     &[mini] {
-        width: 72px;
+        width: variables.$mini-nav-width;
         padding: 0 4px;
 
         margin-top: 4px;
@@ -126,7 +128,7 @@ body[home] {
 
 @media only screen and (width <= 1375px) {
     nav {
-        width: 72px;
+        width: variables.$mini-nav-width;
         padding: 0 4px;
 
         margin-top: 4px;

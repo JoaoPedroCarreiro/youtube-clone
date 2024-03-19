@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import "./TopHead.scss"
 
@@ -13,14 +13,43 @@ const TopHead: React.FC<TopHeadProps> = () => {
     const searchIconRightRef = useRef<HTMLDivElement | null>(null)
     const searchRef = useRef<HTMLInputElement | null>(null)
     const clearBtnRef = useRef<HTMLButtonElement | null>(null)
+    const userBtnRef = useRef<HTMLDivElement | null>(null)
+    const userRef = useRef<HTMLDivElement | null>(null)
 
-    const { search } = useLocation()
+    const { pathname, search } = useLocation()
     const navigate = useNavigate()
 
     const [searchQuery, setSearchQuery] = useState<string>("")
+    const [theme, setTheme] = useState<string>("Light")
+
+    useEffect(() => {
+        if(localStorage.getItem("theme") === "dark") {
+            if(!document.querySelector("html")?.hasAttribute("dark")) document.querySelector("html")?.toggleAttribute("dark")
+        }
+
+        window.addEventListener("click", (event: MouseEvent): void => {
+            const target = event.target as HTMLElement
+
+            if(userRef.current) {
+                if(!target.classList.contains("user-unique-0pln") && userRef.current.style.display) {
+                    userRef.current.style.display = ""
+                }
+            }
+        })
+    }, [])
 
     const toggleMenu = (): void => {
-        if(window.innerWidth > 1375) document.body.querySelector("nav")?.toggleAttribute("mini")
+        if(window.innerWidth > 1375 && !pathname.startsWith("/watch")) {
+            document.body.querySelector("nav")?.toggleAttribute("mini")
+            return
+        }
+
+        const navMenu = document.getElementById("nav-menu-dec") as HTMLElement
+        const screenDark = document.getElementById("screen-darker") as HTMLElement
+
+        navMenu.style.transform = "translateX(0%)"
+        screenDark.style.zIndex = "4"
+        screenDark.style.opacity = "1"
     }
 
     const onEnterDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
@@ -79,6 +108,23 @@ const TopHead: React.FC<TopHeadProps> = () => {
             searchRef.current.value = ""
             clearBtnRef.current.style.opacity = "0"
         }
+    }
+
+    const toggleUser = (): void => {
+        if(userRef.current) {
+            if(userRef.current.style.display) {
+                userRef.current.style.display = ""
+                return
+            }
+
+            userRef.current.style.display = "block"
+        }
+    }
+
+    const changeTheme = (): void => {
+        document.querySelector("html")?.toggleAttribute("dark")
+        localStorage.setItem("theme", document.querySelector("html")?.hasAttribute("dark") ? "dark" : "light")
+        setTheme(document.querySelector("html")?.hasAttribute("dark") ? "Dark" : "Light")
     }
 
     return (
@@ -191,9 +237,26 @@ const TopHead: React.FC<TopHeadProps> = () => {
                         </svg>
                     </div>
                 </button>
-                <button id="user">
-                    <img src={user} alt="User" />
-                </button>
+                <div className="user-unique-0pln" ref={userBtnRef} role="button" tabIndex={0} id="user">
+                    <img className="user-unique-0pln" src={user} alt="User" onClick={toggleUser} />
+                    <div className="user-unique-0pln" ref={userRef}>
+                        <div className="user-unique-0pln" id="user-info">
+                            <img className="user-unique-0pln" src={user} alt="User" />
+                            <div className="user-unique-0pln">
+                                <p className="user-unique-0pln">User</p>
+                                <p className="user-unique-0pln">@user</p>
+                            </div>
+                        </div>
+                        <button id="appearence" className="low-hover-lighter user-unique-0pln" onClick={changeTheme}>
+                            <div className="svg-theme-change user-unique-0pln">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false">
+                                    <path d="M12 22C10.93 22 9.86998 21.83 8.83998 21.48L7.41998 21.01L8.83998 20.54C12.53 19.31 15 15.88 15 12C15 8.12 12.53 4.69 8.83998 3.47L7.41998 2.99L8.83998 2.52C9.86998 2.17 10.93 2 12 2C17.51 2 22 6.49 22 12C22 17.51 17.51 22 12 22ZM10.58 20.89C11.05 20.96 11.53 21 12 21C16.96 21 21 16.96 21 12C21 7.04 16.96 3 12 3C11.53 3 11.05 3.04 10.58 3.11C13.88 4.81 16 8.21 16 12C16 15.79 13.88 19.19 10.58 20.89Z"></path>
+                                </svg>
+                            </div>
+                            <span className="user-unique-0pln">Appearence: {theme}</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     )

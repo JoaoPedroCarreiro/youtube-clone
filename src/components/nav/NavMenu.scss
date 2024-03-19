@@ -1,0 +1,113 @@
+@use "styles/variables";
+
+@mixin head-button {
+    border-radius: 50%;
+    padding: 8px;
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+#nav-menu-dec {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+
+    z-index: 5;
+
+    background-color: var(--bg-color);
+
+    transition: transform 0.2s ease;
+
+    #yt-and-btn {
+        width: 100%;
+        height: variables.$head-height;
+
+        display: flex;
+        align-items: center;
+
+        padding-left: 16px;
+
+        #menu {
+            @include head-button;
+        }
+
+        a {
+            position: relative;
+            padding: 18px 14px 18px 16px;
+
+            #youtube-logo {
+                width: 90px;
+                height: 20px;
+            }
+
+            &::after {
+                position: absolute;
+                top: 12px;
+                right: -2.5px;
+
+                content: "BR";
+
+                color: var(--secondary-text-color);
+                
+                font-size: 0.625rem;
+                font-family: Roboto, Arial, sans-serif;
+            }
+        }
+    }
+
+    nav {
+        position: relative;
+        top: 0;
+
+        z-index: 5;
+    }
+}
+
+#screen-darker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgba(0, 0, 0, 0.5);
+
+    transition: opacity 0.2s ease;
+
+    opacity: 0;
+    
+    z-index: -2;
+}
+
+@media only screen and (width <= 1375px) {
+    #nav-menu-dec {
+        nav {
+            width: variables.$nav-width;
+            padding: 0;
+    
+            margin-top: 0;
+    
+            & > #guide-links,
+            & > div {
+                display: block;
+            }
+    
+            #mini-nav {
+                display: none;
+            }
+        }
+    }
+}
+
+@media only screen and (width <= 640px) {
+    #nav-menu-dec {
+        nav {
+            display: block;
+        }
+    }
+}

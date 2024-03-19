@@ -6,7 +6,7 @@
 
     width: max-content;
 
-    background-color: variables.$search-voice-bg-color;
+    background-color: var(--search-voice-bg-color);
     border-radius: 20px;
 
     padding: 0 8px;
@@ -17,5 +17,5 @@
 }
 
 .link-not-found {
-    color: #065fd4;
+    color: var(--link-color);
 }

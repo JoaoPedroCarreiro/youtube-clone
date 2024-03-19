@@ -20,14 +20,14 @@
         
         transform: translateX(-50%);
 
-        background-color: variables.$secondary-bg-color;
+        background-color: #616161;
         opacity: 0.9;
 
         padding: 10px 8px;
 
         width: max-content;
 
-        color: variables.$contrast-bg-text-color;
+        color: white;
         font-size: 0.75rem;
 
         display: none;
@@ -51,7 +51,7 @@
     position: fixed;
     top: 0;
 
-    background-color: variables.$bg-color;
+    background-color: var(--bg-color);
     z-index: 3;
 
     #{&}-left {
@@ -80,7 +80,7 @@
 
                 content: "BR";
 
-                color: variables.$secondary-text-color;
+                color: var(--secondary-text-color);
                 
                 font-size: 0.625rem;
                 font-family: Roboto, Arial, sans-serif;
@@ -101,8 +101,8 @@
 
             border-top-left-radius: 30px;
             border-bottom-left-radius: 30px;
-            border: 1px solid variables.$border-search-color;
-            box-shadow: inset 0 1px 2px variables.$shadow-search-color;
+            border: 1px solid var(--border-search-color);
+            box-shadow: inset 0 1px 2px var(--shadow-search-color);
 
             height: 40px;
 
@@ -127,6 +127,8 @@
                 font-size: 1rem;
                 font-weight: 400;
                 font-family: Roboto, Noto, sans-serif;
+                
+                color: var(--primary-text-color);
             }
 
             #clear-button {
@@ -143,10 +145,10 @@
             border-top-right-radius: 30px;
             border-bottom-right-radius: 30px;
     
-            border: 1px solid variables.$border-search-color;
+            border: 1px solid var(--border-search-color);
             border-left: none;
 
-            background-color: variables.$search-button-bg-color;
+            background-color: var(--search-button-bg-color);
 
             padding-left: 20px;
             padding-right: 19px;
@@ -168,7 +170,7 @@
 
             margin-left: 16px;
 
-            background-color: variables.$search-voice-bg-color;
+            background-color: var(--search-voice-bg-color);
         }
     }
 
@@ -194,10 +196,88 @@
             border-radius: 50%;
             margin: 0 14px;
 
+            position: relative;
+
+            cursor: pointer;
+
             img {
                 width: 32px;
                 height: 32px;
                 border-radius: 50%;
+            }
+
+            & > div {
+                display: none;
+
+                position: absolute;
+                bottom: -5px;
+                right: -7px;
+
+                width: 300px;
+                border-radius: 12px;
+                
+                background-color: var(--bg-color);
+                box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.1);
+
+                transform: translateY(100%);
+
+                #user-info {
+                    padding: 16px;
+    
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+    
+                    gap: 16px;
+    
+                    cursor: auto;
+
+                    border-bottom: 1px solid var(--nav-division-color);
+    
+                    img {
+                        width: 40px;
+                        height: 40px;
+                    }
+    
+                    & > div {
+                        p {
+                            cursor: auto;
+                            user-select: text;
+    
+                            text-align: start;
+    
+                            font-size: 1rem;
+                            line-height: 22px;
+    
+                            color: var(--primary-text-color);
+                        }
+                    }
+                }
+
+                #appearence {
+                    width: 100%;
+                    height: 40px;
+
+                    margin: 8px 0;
+
+                    color: var(--primary-text-color);
+
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+
+                    padding: 0 16px;
+
+                    svg {
+                        width: 24px;
+                        height: 24px;
+                    }
+
+                    span {
+                        font-size: 0.875rem;
+                        line-height: 20px;
+                    }
+                }
             }
         }
     }

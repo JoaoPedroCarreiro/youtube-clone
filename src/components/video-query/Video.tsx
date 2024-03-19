@@ -53,7 +53,7 @@ const Video: React.FC<VideoProps> = ({ id }) => {
                         <div className="video-right">
                             <div className="video-info">
                                 <a className="info-top"  href={`/watch?v=${id}`}>
-                                    <h2>{video.title}</h2>
+                                    <h2 title={video.title}>{video.title}</h2>
                                     <span>{video.views} views</span><span style={{ margin: "0px 4px" }}>•</span><span>{video.ago}</span>
                                 </a>
                             </div>
