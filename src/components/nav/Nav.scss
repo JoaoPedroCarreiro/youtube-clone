@@ -123,3 +123,27 @@ body[home] {
         background-color: rgba(0, 0, 0, 0.05);
     }
 }
+
+@media only screen and (width <= 1375px) {
+    nav {
+        width: 72px;
+        padding: 0 4px;
+
+        margin-top: 4px;
+
+        & > #guide-links,
+        & > div {
+            display: none;
+        }
+
+        #mini-nav {
+            display: block;
+        }
+    }
+}
+
+@media only screen and (width <= 640px) {
+    nav {
+        display: none;
+    }
+}

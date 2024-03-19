@@ -30,8 +30,6 @@ const Video: React.FC<VideoProps> = ({ id }) => {
             const videoRes = await axios.get(`${baseUrl}/videos?part=snippet&part=statistics&part=contentDetails&id=${id}&key=${key}`)
             const channelRes = await axios.get(`${baseUrl}/channels?part=snippet&id=${videoRes.data.items[0].snippet.channelId}&key=${key}`)
 
-            console.log(videoRes.data.items[0].snippet)
-
             const videoItem: IVideo = {
                 title: videoRes.data.items[0].snippet.title,
                 img: videoRes.data.items[0].snippet.thumbnails.medium.url,
@@ -41,6 +39,8 @@ const Video: React.FC<VideoProps> = ({ id }) => {
                 channelImg: channelRes.data.items[0].snippet.thumbnails.default.url,
                 desc: videoRes.data.items[0].snippet.description
             }
+
+            console.log(videoRes.data.items[0].snippet.thumbnails)
 
             setVideo(videoItem)
         })()

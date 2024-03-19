@@ -86,7 +86,7 @@ const VideoWatch: React.FC<VideoWatchProps> = () => {
             setDate(watchItem.ago)
             setViews(watchItem.views)
         })()
-    }, [])
+    }, [search])
 
     const showMoreDesc = (event: React.MouseEvent<HTMLPreElement>): void => {
         event.currentTarget.style.height = "100%"
@@ -114,7 +114,7 @@ const VideoWatch: React.FC<VideoWatchProps> = () => {
 
     return (
         <div id="video-watch">
-            <iframe src={`https://www.youtube.com/embed/${search.split("=")[1]}?autoplay=1`} allow="autoplay" allowFullScreen></iframe>
+            <iframe title="Video Watch" src={`https://www.youtube.com/embed/${search.split("=")[1]}?autoplay=1`} allow="autoplay" allowFullScreen></iframe>
             <div id="content">
                 {
                     watch ? 
@@ -122,7 +122,7 @@ const VideoWatch: React.FC<VideoWatchProps> = () => {
                             <h1>{watch.title}</h1>
                             <div id="info">
                                 <div id="channel">
-                                    <a href="#"><img src={watch.channelImg} alt={watch.title} /></a>
+                                    <div id="channel-img"><img src={watch.channelImg} alt={watch.title} /></div>
                                     <div id="channel-info">
                                         <a href="#">{watch.channel}</a>
                                         <p>{watch.subs} subscribers</p>
@@ -142,13 +142,13 @@ const VideoWatch: React.FC<VideoWatchProps> = () => {
                                             </svg>
                                         </button>
                                     </div>
-                                    <button className="low-hover-lighter default-btn">
+                                    <button id="video-share-button" className="low-hover-lighter default-btn">
                                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false">
                                             <path d="M15 5.63 20.66 12 15 18.37V14h-1c-3.96 0-7.14 1-9.75 3.09 1.84-4.07 5.11-6.4 9.89-7.1l.86-.13V5.63M14 3v6C6.22 10.13 3.11 15.33 2 21c2.78-3.97 6.44-6 12-6v6l8-9-8-9z"></path>
                                         </svg>
                                         <span>Share</span>
                                     </button>
-                                    <button className="low-hover-lighter default-btn">
+                                    <button id="video-download-button" className="low-hover-lighter default-btn">
                                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false">
                                             <path d="M17 18v1H6v-1h11zm-.5-6.6-.7-.7-3.8 3.7V4h-1v10.4l-3.8-3.8-.7.7 5 5 5-4.9z"></path>
                                         </svg>

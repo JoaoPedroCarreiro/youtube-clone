@@ -22,7 +22,7 @@ const TopHead: React.FC<TopHeadProps> = () => {
     const [searchQuery, setSearchQuery] = useState<string>("")
 
     const toggleMenu = (): void => {
-        document.body.querySelector("nav")?.toggleAttribute("mini")
+        if(window.innerWidth > 1375) document.body.querySelector("nav")?.toggleAttribute("mini")
     }
 
     const onEnterDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {

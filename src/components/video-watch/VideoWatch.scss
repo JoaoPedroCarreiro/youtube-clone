@@ -13,6 +13,11 @@
         margin: 0px 24px;
         margin-top: 10px;
 
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+
         h1 {
             color: variables.$primary-text-color;
             font-size: 1.25rem;
@@ -34,12 +39,13 @@
                 align-items: center;
                 gap: 12px;
     
-                & > a {
+                & > #channel-img {
                     border-radius: 50%;
-                    width: 40px;
+                    min-width: 40px;
                     height: 40px;
     
                     overflow: hidden;
+
     
                     img {
                         width: 100%;
@@ -219,5 +225,37 @@
                 display: block;
             }
         }
+    }
+}
+
+@media only screen and (width <= 620px) {
+    #video-watch #content #info {
+        flex-direction: column;
+        align-items: start;
+        gap: 12px;
+    }
+}
+
+@media only screen and (width <= 470px) {
+    #video-watch #content #info #left-info #video-download-button {
+        display: none;
+    }
+}
+
+@media only screen and (width <= 340px) {
+    #video-watch #content #info #left-info #video-share-button {
+        display: none;
+    }
+}
+
+@media only screen and (width <= 340px) {
+    #video-watch #content #info #left-info #video-share-button {
+        display: none;
+    }
+}
+
+@media only screen and (width <= 215px) {
+    #video-watch #content #info #left-info #likes-dislikes #like span {
+        display: none;
     }
 }
