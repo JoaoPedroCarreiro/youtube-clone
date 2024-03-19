@@ -12,6 +12,10 @@ nav {
     background-color: var(--bg-color);
     z-index: 3;
 
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
     .nav-division {
         padding: 12px;
         border-bottom: 1px solid var(--nav-division-color);

@@ -8,6 +8,10 @@ import user from "assets/user.jpg"
 
 interface TopHeadProps {}
 
+if(localStorage.getItem("theme") === "dark") {
+    if(!document.querySelector("html")?.hasAttribute("dark")) document.querySelector("html")?.toggleAttribute("dark")
+}
+
 const TopHead: React.FC<TopHeadProps> = () => {
     const searchIdRef = useRef<HTMLDivElement | null>(null)
     const searchIconRightRef = useRef<HTMLDivElement | null>(null)
@@ -23,10 +27,6 @@ const TopHead: React.FC<TopHeadProps> = () => {
     const [theme, setTheme] = useState<string>("Light")
 
     useEffect(() => {
-        if(localStorage.getItem("theme") === "dark") {
-            if(!document.querySelector("html")?.hasAttribute("dark")) document.querySelector("html")?.toggleAttribute("dark")
-        }
-
         window.addEventListener("click", (event: MouseEvent): void => {
             const target = event.target as HTMLElement
 

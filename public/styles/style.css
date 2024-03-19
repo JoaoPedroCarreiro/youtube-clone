@@ -44,6 +44,9 @@ html[dark] {
     --nav-division-color: rgba(255, 255, 255, 0.2);
 
     --link-color: #3ea6ff;
+
+    --scrollbar-color: rgba(255, 255, 255, 0.4);
+    --scrollbar-color-lighter: rgba(255, 255, 255, 0.55);
 }
 
 body {
@@ -52,4 +55,21 @@ body {
 
 .svg-theme-change {
     fill: var(--primary-text-color);
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-color-lighter);
 }

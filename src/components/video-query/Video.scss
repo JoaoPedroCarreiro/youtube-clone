@@ -146,7 +146,7 @@
     }
 
     .unload-img-link {
-        width: 320px;
+        min-width: 320px;
         height: 180px;
 
         background-color: var(--loading-color);
@@ -184,6 +184,13 @@
 
         .video-right {
             max-width: 270px;
+        }
+
+        .unload-img-link {
+            min-width: 175px;
+            width: 320px;
+            height: 100%;
+            aspect-ratio: 16 / 9;
         }
     }
 }
