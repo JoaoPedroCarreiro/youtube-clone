@@ -1,6 +1,6 @@
 @use "styles/variables";
 
-section {
+#videos-section {
     position: relative;
     margin-top: calc(variables.$head-height + 16px);
     margin-left: variables.$nav-width;
@@ -8,22 +8,24 @@ section {
     width: calc(100% - variables.$nav-width);
 
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
     align-items: center;
-    gap: 16px;
+    justify-content: center;
+    row-gap: 40px;
+    column-gap: 24px;
 }
 
 @media only screen and (width <= 1375px) {
-    section {
+    #videos-section {
         width: calc(100% - variables.$mini-nav-width);
         margin-left: variables.$mini-nav-width;
-
-        padding-left: 20px;
+        padding-left: 0;
     }
 }
 
 @media only screen and (width <= 640px) {
-    section {
+    #videos-section {
         width: 100%;
         margin-left: 0;
     }
