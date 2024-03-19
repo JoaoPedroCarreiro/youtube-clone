@@ -44,6 +44,8 @@ const VideoWatch: React.FC<VideoWatchProps> = () => {
             const videoRes = await axios.get(`${baseUrl}/videos?part=snippet&part=statistics&part=contentDetails&id=${search.split("=")[1]}&key=${key}`)
             const channelRes = await axios.get(`${baseUrl}/channels?part=snippet&part=statistics&id=${videoRes.data.items[0].snippet.channelId}&key=${key}`)
 
+            document.title = videoRes.data.items[0].snippet.title + " - YouTube"
+
             let description: string = videoRes.data.items[0].snippet.description
 
             const links: RegExpMatchArray[] = [...description.matchAll(/(http).+/g)]

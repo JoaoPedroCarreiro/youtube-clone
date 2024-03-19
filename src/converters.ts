@@ -49,8 +49,12 @@ function normalViews(views: string): string {
     return str
 }
 
+function normalizeString(str: string): string {
+    return str.split("%20").join(" ")
+}
 
 export { viewsMini }
 export { timeAgo }
 export { normalDate }
 export { normalViews }
+export { normalizeString }

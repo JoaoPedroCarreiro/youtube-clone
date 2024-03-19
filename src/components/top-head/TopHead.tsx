@@ -2,11 +2,9 @@ import { useRef, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import "./TopHead.scss"
 
-import user from "assets/user.jpg"
+import { normalizeString } from "converters"
 
-function normalize(str: string): string {
-    return str.split("%20").join(" ")
-}
+import user from "assets/user.jpg"
 
 interface TopHeadProps {}
 
@@ -131,7 +129,7 @@ const TopHead: React.FC<TopHeadProps> = () => {
                         onBlur={onBlurOnInput}
                         onChange={onSearchInput}
                         type="text" autoComplete="off" aria-label="Search"
-                        defaultValue={search.startsWith("?search_query=") ? normalize(search.split("?search_query=")[1]) : ""}
+                        defaultValue={search.startsWith("?search_query=") ? normalizeString(search.split("?search_query=")[1]) : ""}
                         placeholder="Search" autoCorrect="off"
                     />
                     <button ref={clearBtnRef} onClick={clearSearchInput} id="clear-button" className="low-hover">

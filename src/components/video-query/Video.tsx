@@ -40,8 +40,6 @@ const Video: React.FC<VideoProps> = ({ id }) => {
                 desc: videoRes.data.items[0].snippet.description
             }
 
-            console.log(videoRes.data.items[0].snippet.thumbnails)
-
             setVideo(videoItem)
         })()
     }, [])
