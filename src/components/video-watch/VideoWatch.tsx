@@ -19,7 +19,6 @@ type IWatch = {
     date: string,
     likes: string,
     desc: React.ReactElement<any, any>[],
-    thirdLineDesc: string,
     channel: string,
     channelImg: string,
     subs: string
@@ -78,7 +77,6 @@ const VideoWatch: React.FC<VideoWatchProps> = () => {
                 date: normalDate(videoRes.data.items[0].snippet.publishedAt),
                 likes: viewsMini(videoRes.data.items[0].statistics.likeCount),
                 desc: arr,
-                thirdLineDesc: description.split("\n")[2].split("<link-find-unique-uckl9>")[0],
                 channel: channelRes.data.items[0].snippet.title,
                 channelImg: channelRes.data.items[0].snippet.thumbnails.default.url,
                 subs: viewsMini(channelRes.data.items[0].statistics.subscriberCount, 2),
