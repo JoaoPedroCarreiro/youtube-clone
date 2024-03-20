@@ -1,6 +1,6 @@
 const insert = (str: string, i: number, substr: string): string => str.substring(0, i) + substr + str.substring(i)
 
-const months: string[] = ["Jan", "Fev", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct","Nov", "Dec"]
+const months: string[] = ["Jan", "Fev", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 function viewsMini(views: number, fixed: number = 1): string {
     if(views >= 1000000) return (views / 1000000) < 10 ? `${(views / 1000000).toFixed(fixed)}M` : `${Math.floor((views / 1000000))}M`
@@ -33,7 +33,7 @@ function normalDate(str: string): string {
     const splitted: string[] = str.split("T")[0].split("-")
 
     const year: string = splitted[0]
-    const month: string = months[Number(splitted[1])]
+    const month: string = months[Number(splitted[1]) - 1]
     const day: string = String(Number(splitted[2]))
 
     return `${month} ${day}, ${year}`
@@ -59,7 +59,7 @@ function duration(time: string): string {
     str = str.split("PT")[1]
 
     const hour: string = /\d+H/.exec(str) ? (/\d+H/.exec(str) as RegExpExecArray)[0].split("H")[0] : ""
-    const min: string = /\d+M/.exec(str) ? (/\d+M/.exec(str) as RegExpExecArray)[0].split("M")[0] : hour ? "00" : "0"
+    const min: string = /\d+M/.exec(str) ? Number((/\d+M/.exec(str) as RegExpExecArray)[0].split("M")[0]) < 10 && hour ? "0" + (/\d+M/.exec(str) as RegExpExecArray)[0].split("M")[0] : (/\d+M/.exec(str) as RegExpExecArray)[0].split("M")[0] : hour ? "00" : "0"
     const sec: string = /\d+S/.exec(str) ? Number((/\d+S/.exec(str) as RegExpExecArray)[0].split("S")[0]) < 10 ? "0" + (/\d+S/.exec(str) as RegExpExecArray)[0].split("S")[0] : (/\d+S/.exec(str) as RegExpExecArray)[0].split("S")[0] : "00"
 
     return `${hour ? hour + ":" : ""}${min}:${sec}`
