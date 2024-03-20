@@ -105,21 +105,21 @@ nav {
             }
         }
     }
+}
 
-    &[mini] {
-        width: variables.$mini-nav-width;
-        padding: 0 4px;
+body[mini] nav {
+    width: variables.$mini-nav-width;
+    padding: 0 4px;
 
-        margin-top: 4px;
+    margin-top: 4px;
 
-        & > #guide-links,
-        & > div {
-            display: none;
-        }
+    & > #guide-links,
+    & > div {
+        display: none;
+    }
 
-        #mini-nav {
-            display: block;
-        }
+    #mini-nav {
+        display: block;
     }
 }
 

@@ -14,7 +14,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    transform: translateX(-100%);
+    transform: translateX(-110%);
 
     z-index: 5;
 
@@ -92,13 +92,16 @@
     
             margin-top: 0;
     
-            & > #guide-links,
             & > div {
                 display: block;
             }
     
             #mini-nav {
                 display: none;
+            }
+
+            & > #guide-links {
+                display: flex;
             }
         }
     }

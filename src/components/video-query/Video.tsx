@@ -3,7 +3,7 @@ import axios from "axios"
 
 import "./Video.scss"
 
-import { viewsMini, timeAgo } from "converters"
+import { viewsMini, timeAgo, duration } from "converters"
 
 const baseUrl = "https://youtube.googleapis.com/youtube/v3"
 const key = "AIzaSyC0NZkDiGxlxEKwLxiXxcFr1HUxILU3fuI"
@@ -13,6 +13,7 @@ type IVideo = {
     img: string,
     views: string,
     ago: string,
+    duration: string,
     channel: string,
     channelImg: string,
     desc: string
@@ -35,6 +36,7 @@ const Video: React.FC<VideoProps> = ({ id }) => {
                 img: videoRes.data.items[0].snippet.thumbnails.medium.url,
                 views: viewsMini(Number(videoRes.data.items[0].statistics.viewCount)),
                 ago: timeAgo(new Date().getTime() - new Date(videoRes.data.items[0].snippet.publishedAt).getTime()),
+                duration: duration(videoRes.data.items[0].contentDetails.duration),
                 channel: channelRes.data.items[0].snippet.title,
                 channelImg: channelRes.data.items[0].snippet.thumbnails.default.url,
                 desc: videoRes.data.items[0].snippet.description
@@ -42,22 +44,25 @@ const Video: React.FC<VideoProps> = ({ id }) => {
 
             setVideo(videoItem)
         })()
-    }, [])
+    }, [id])
 
     return (
         <div className="video">
             {
                 video ?
                     <>
-                        <a className="img-link" href={`/watch?v=${id}`}><img src={video.img} alt={video.title} /></a>
+                        <a className="img-link" href={`/watch?v=${id}`}>
+                            <img src={video.img} alt={video.title} />
+                            <span>{video.duration}</span>
+                        </a>
                         <div className="video-right">
                             <div className="video-info">
-                                <a className="info-top"  href={`/watch?v=${id}`}>
+                                <a className="info-top" href={`/watch?v=${id}`}>
                                     <h2 title={video.title}>{video.title}</h2>
                                     <span>{video.views} views</span><span style={{ margin: "0px 4px" }}>•</span><span>{video.ago}</span>
                                 </a>
                             </div>
-                            <a href="#" className="channel">
+                            <a href={`/watch?v=${id}`} className="channel">
                                 <img src={video.channelImg} alt={video.channel} />
                                 <span>
                                     {video.channel}

@@ -3,7 +3,7 @@ import axios from "axios"
 
 import "./HomeVideo.scss"
 
-import { viewsMini, timeAgo } from "converters"
+import { viewsMini, timeAgo, duration } from "converters"
 
 const baseUrl = "https://youtube.googleapis.com/youtube/v3"
 const key = "AIzaSyC0NZkDiGxlxEKwLxiXxcFr1HUxILU3fuI"
@@ -13,6 +13,7 @@ type IHomeVideo = {
     img: string,
     views: string,
     ago: string,
+    duration: string,
     channel: string,
     channelImg: string
 }
@@ -34,6 +35,7 @@ const HomeVideo: React.FC<HomeVideoProps> = ({ id }) => {
                 img: videoRes.data.items[0].snippet.thumbnails.medium.url,
                 views: viewsMini(Number(videoRes.data.items[0].statistics.viewCount)),
                 ago: timeAgo(new Date().getTime() - new Date(videoRes.data.items[0].snippet.publishedAt).getTime()),
+                duration: duration(videoRes.data.items[0].contentDetails.duration),
                 channel: channelRes.data.items[0].snippet.title,
                 channelImg: channelRes.data.items[0].snippet.thumbnails.default.url,
             }
@@ -47,13 +49,16 @@ const HomeVideo: React.FC<HomeVideoProps> = ({ id }) => {
             {
                 video ?
                     <>
-                        <a className="home-video-img" href={`/watch?v=${id}`}><img src={video.img} alt={video.title} /></a>
+                        <a className="home-video-img" href={`/watch?v=${id}`}>
+                            <img src={video.img} alt={video.title} />
+                            <span>{video.duration}</span>
+                        </a>
                         <div className="home-video-info">
-                            <a href="#" className="channel-img"><img src={video.channelImg} alt={video.channel} title={video.channel} /></a>
+                            <a href="/#" className="channel-img"><img src={video.channelImg} alt={video.channel} title={video.channel} /></a>
                             <div className="right">
                                 <a href={`/watch?v=${id}`} title={video.title}><h2>{video.title}</h2></a>
                                 <div className="channel-name">
-                                    <a href="#">{video.channel}</a>
+                                    <a href="/#">{video.channel}</a>
                                     <span>{video.channel}</span>
                                 </div>
                                 <a href={`/watch?v=${id}`}><span>{video.views} views</span><span style={{ margin: "0px 4px" }}>•</span><span>{video.ago}</span></a>
@@ -62,7 +67,14 @@ const HomeVideo: React.FC<HomeVideoProps> = ({ id }) => {
                     </>
                 :
                     <>
-
+                        <div className="img-loading"></div>
+                        <div className="home-video-info">
+                            <div className="channel-img-loading"></div>
+                            <div className="right">
+                                <div className="top"></div>
+                                <div className="bottom"></div>
+                            </div>
+                        </div>
                     </>
             }
         </div>

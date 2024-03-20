@@ -13,7 +13,7 @@ const Home: React.FC<HomeProps> = () => {
         const arr: HomeVideoElement[] = []
 
         for(const item of ids) {
-            arr.push(<HomeVideo id={item} />)
+            arr.push(<HomeVideo key={item} id={item} />)
         }
 
         return arr
@@ -21,7 +21,9 @@ const Home: React.FC<HomeProps> = () => {
 
     return (
         <section id="videos-section">
-            {getVideos()}
+            <div>
+                {getVideos()}
+            </div>
         </section>
     )
 }

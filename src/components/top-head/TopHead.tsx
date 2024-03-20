@@ -19,6 +19,7 @@ const TopHead: React.FC<TopHeadProps> = () => {
     const clearBtnRef = useRef<HTMLButtonElement | null>(null)
     const userBtnRef = useRef<HTMLDivElement | null>(null)
     const userRef = useRef<HTMLDivElement | null>(null)
+    const topHeadRef = useRef<HTMLDivElement | null>(null)
 
     const { pathname, search } = useLocation()
     const navigate = useNavigate()
@@ -27,6 +28,10 @@ const TopHead: React.FC<TopHeadProps> = () => {
     const [theme, setTheme] = useState<string>("Light")
 
     useEffect(() => {
+        window.addEventListener("resize", (): void => {
+            if(window.innerWidth > 720 && topHeadRef.current?.hasAttribute("search")) topHeadRef.current.toggleAttribute("search")
+        })
+
         window.addEventListener("click", (event: MouseEvent): void => {
             const target = event.target as HTMLElement
 
@@ -40,7 +45,7 @@ const TopHead: React.FC<TopHeadProps> = () => {
 
     const toggleMenu = (): void => {
         if(window.innerWidth > 1375 && !pathname.startsWith("/watch")) {
-            document.body.querySelector("nav")?.toggleAttribute("mini")
+            document.body.toggleAttribute("mini")
             return
         }
 
@@ -84,7 +89,10 @@ const TopHead: React.FC<TopHeadProps> = () => {
             searchIconRightRef.current.style.height = "0px"
             searchIconRightRef.current.style.marginRight = "0px"
 
-            searchIdRef.current.style.marginLeft = "32px"
+            if(window.innerWidth > 290) {
+                searchIdRef.current.style.marginLeft = "32px"
+            }
+
             searchIdRef.current.style.border = ""
             searchIdRef.current.style.boxShadow = ""
         }
@@ -127,9 +135,20 @@ const TopHead: React.FC<TopHeadProps> = () => {
         setTheme(document.querySelector("html")?.hasAttribute("dark") ? "Dark" : "Light")
     }
 
+    const toggleSearchMobile = (): void => {
+        if(topHeadRef.current) topHeadRef.current.toggleAttribute("search")
+    }
+
     return (
-        <div id="top-head">
+        <div id="top-head" ref={topHeadRef}>
             <div id="top-head-left">
+                <button id="back" className="low-hover" onClick={toggleSearchMobile}>
+                    <div className="svg-theme-change">
+                        <svg mirror-in-rtl="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false">
+                            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+                        </svg>
+                    </div>
+                </button>
                 <button id="menu" className="low-hover" onClick={toggleMenu}>
                     <div className="svg-theme-change">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false">
@@ -204,7 +223,7 @@ const TopHead: React.FC<TopHeadProps> = () => {
                 </button>
             </div>
             <div id="top-head-right">
-                <button id="search-right" className="low-hover">
+                <button id="search-right" className="low-hover" onClick={toggleSearchMobile}>
                     <span>Search</span>
                     <div className="svg-theme-change">
                         <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false">

@@ -7,6 +7,7 @@ import TopHead from "./top-head/TopHead"
 import Nav from "./nav/Nav"
 import VideoQuery from "./video-query/VideoQuery"
 import NavMenu from "./nav/NavMenu"
+import TypesBar from "./types-bar/TypesBar"
 
 interface SearchProps {}
 
@@ -19,6 +20,7 @@ const Search: React.FC<SearchProps> = () => {
         <>
             <TopHead />
             <Nav />
+            <TypesBar />
             <VideoQuery />
             <NavMenu />
         </>

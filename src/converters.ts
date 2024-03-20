@@ -53,8 +53,21 @@ function normalizeString(str: string): string {
     return str.split("%20").join(" ")
 }
 
+function duration(time: string): string {
+    let str: string = time
+
+    str = str.split("PT")[1]
+
+    const hour: string = /\d+H/.exec(str) ? (/\d+H/.exec(str) as RegExpExecArray)[0].split("H")[0] : ""
+    const min: string = /\d+M/.exec(str) ? (/\d+M/.exec(str) as RegExpExecArray)[0].split("M")[0] : hour ? "00" : "0"
+    const sec: string = /\d+S/.exec(str) ? Number((/\d+S/.exec(str) as RegExpExecArray)[0].split("S")[0]) < 10 ? "0" + (/\d+S/.exec(str) as RegExpExecArray)[0].split("S")[0] : (/\d+S/.exec(str) as RegExpExecArray)[0].split("S")[0] : "00"
+
+    return `${hour ? hour + ":" : ""}${min}:${sec}`
+}
+
 export { viewsMini }
 export { timeAgo }
 export { normalDate }
 export { normalViews }
 export { normalizeString }
+export { duration }

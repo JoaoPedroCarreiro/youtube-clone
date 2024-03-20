@@ -18,6 +18,11 @@
     --nav-division-color: rgba(0, 0, 0, 0.1);
     
     --link-color: #065fd4;
+
+    --scrollbar-color: rgba(0, 0, 0, 0.4);
+    --scrollbar-color-lighter: rgba(0, 0, 0, 0.55);
+
+    --type-bg-color: rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -47,6 +52,8 @@ html[dark] {
 
     --scrollbar-color: rgba(255, 255, 255, 0.4);
     --scrollbar-color-lighter: rgba(255, 255, 255, 0.55);
+
+    --type-bg-color: rgba(255, 255, 255, 0.1);
 }
 
 body {

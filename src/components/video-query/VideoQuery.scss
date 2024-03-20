@@ -2,7 +2,7 @@
 
 section {
     position: relative;
-    margin-top: calc(variables.$head-height + 16px);
+    margin-top: calc(variables.$head-height + variables.$types-bar-height + 16px);
     margin-left: variables.$nav-width;
 
     width: calc(100% - variables.$nav-width);
@@ -13,7 +13,7 @@ section {
     gap: 16px;
 }
 
-@media only screen and (width <= 1375px) {
+body[mini] section {
     section {
         width: calc(100% - variables.$mini-nav-width);
         margin-left: variables.$mini-nav-width;
@@ -22,8 +22,17 @@ section {
     }
 }
 
+@media only screen and (width <= 1375px) {
+    body[mini] section, section {
+        width: calc(100% - variables.$mini-nav-width);
+        margin-left: variables.$mini-nav-width;
+
+        padding-left: 0px;
+    }
+}
+
 @media only screen and (width <= 640px) {
-    section {
+    body[mini] section, section {
         width: 100%;
         margin-left: 0;
     }
